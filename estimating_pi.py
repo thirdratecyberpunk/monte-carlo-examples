@@ -21,6 +21,13 @@ x_data = []
 y_data = []
 
 def update(frame):
+    # plotting circle for reference
+    angle = np.linspace(0 , 2 * np.pi , 150)
+    radius = 1
+    circle_x = radius * np.cos(angle)
+    circle_y = radius * np.sin(angle)
+    ax.plot(circle_x, circle_y)
+    # plotting values
     x_data.append(frame[0])
     y_data.append(frame[1])
     ln.set_data(x_data, y_data)
@@ -33,12 +40,6 @@ def main():
     random.seed(1)
     points = 1000000
     print(f"Estimating pi with {points} points")
-
-    # plotting circle for reference
-    # angle = np.linspace(0 , 2 * np.pi , 150)
-    # radius = 1
-    # circle_x = radius * np.cos(angle)
-    # circle_y = radius * np.sin(angle)
 
     # generating random points and plotting them
     points_in_circle = 0
